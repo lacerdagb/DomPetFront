@@ -1,47 +1,94 @@
-/* Aqui fica o global  */
-
-* {
-    margin: 0;
-    padding: 0;
-
-}
-
-body {
-    background-color: #1F1F1F;
-    font-family: sans-serif;
-    color: #fff;
-    background-image: url("/img/Group1.jpg"); /*Inclui a imagem no body*/
-    background-position: center; /* A imagem ficará centralizada*/
-    background-size: cover; /* Faz com que a imagem fique centralizada ref ao elemento pai, mesmo que corte a imagem. */
-    height: 1000px;
-}
-
-/* Estilização do Header  */
+/* Estilização do Header  */
 .navbar {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    background-image: linear-gradient(rgb(0,0,0), rgba(0,0,0,0.5));
-    top: 0; /* Faz com que o navbar se posicione no início da página */
-    position: sticky; /* Faz com que o navbar grude no topo da tela */
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "logo search"
+        "nav nav";
+    
+    align-items: center;
+    gap: 15px 32px;
+    
+    background-color: #fff;
+    top: 0;
+    position: sticky;
     padding: 15px 32px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    /* Propriedades para centralizar o navbar completo, se desejar */
+    max-width: 1200px; /* Exemplo de largura máxima para o conteúdo do navbar */
+    margin: 0 auto; /* Centraliza o navbar horizontalmente na página */
+    width: 100%; /* Garante que ele ocupe 100% até atingir o max-width */
+}
+
+/* Atribui os elementos às áreas do grid */
+.logo {
+    grid-area: logo;
+}
+
+.dog {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+}
+
+.buscar {
+    grid-area: search;
+    width: 100%;
+    max-width: 600px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 0 15px;
+    font-size: 1rem;
+    color: #333;
 }
 
 .nav-links {
+    grid-area: nav;
     display: flex;
     list-style: none;
     gap: 24px;
+    /* --- MUDANÇA AQUI: Centraliza os itens Flex dentro do contêiner .nav-links --- */
+    justify-content: center; /* Alinha os links ao centro dentro da sua célula grid */
+    align-items: center; /* Centraliza os itens do nav-links verticalmente */
 }
 
 .nav-links li a {
     text-decoration: none;
-    color: #ccc;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
     color: #b0060b;
 }
-.dog {
-    width: 200px;
-    height:200px;
+
+/* Estilização do Footer */
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: #cacaca;
+    margin-top: 50px;
+}
+
+/* O restante do seu CSS global permanece o mesmo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: #1F1F1F; */
+    font-family: sans-serif;
+    color: #fff;
+    background-image: url("/img/Group1.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 1000px;
+    background-attachment: fixed;
 }
